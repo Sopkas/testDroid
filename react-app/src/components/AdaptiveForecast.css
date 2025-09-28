@@ -1,0 +1,37 @@
+.adaptive-forecast {
+  background: var(--card-bg);
+  border-radius: var(--border-radius);
+  padding: 20px;
+  margin-top: 20px;
+  box-shadow: var(--card-shadow);
+  border: 1px solid var(--border-color);
+}
+
+.adaptive-forecast h3 {
+  margin: 0 0 15px 0;
+  font-size: 1.2rem;
+  color: var(--text-primary);
+  text-align: center;
+}
+
+.forecast-display {
+  text-align: center;
+}
+
+.forecast-text {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--primary-color);
+  margin: 10px 0;
+}
+
+.forecast-explanation {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  text-align: left;
+  margin-top: 15px;
+  padding: 10px;
+  background-color: #f8fafc;
+  border-radius: 8px;
+  border-left: 4px solid var(--primary-color);
+}

@@ -1,0 +1,171 @@
+/* Dota 2 PTS Tracker - Enhanced Styles */
+:root {
+  --primary-color: #1e3a8a; /* Dark blue */
+  --primary-light: #3b82f6; /* Light blue */
+  --secondary-color: #7e22ce; /* Purple */
+  --accent-color: #f59e0b; /* Amber */
+  --success-color: #10b981; /* Green */
+  --warning-color: #f59e0b; /* Amber */
+  --danger-color: #ef4444; /* Red */
+  --dark-bg: #0f172a; /* Dark slate */
+  --light-bg: #f8fafc; /* Light gray */
+  --card-bg: #ffffff; /* White */
+  --text-primary: #0f172a; /* Dark slate */
+  --text-secondary: #64748b; /* Gray */
+  --border-color: #e2e8f0; /* Light gray */
+  --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --container-max-width: 1200px;
+  --border-radius: 12px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+  line-height: 1.6;
+  color: var(--text-primary);
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+  min-height: 100vh;
+  padding-bottom: 40px;
+}
+
+.App {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.app-header {
+  text-align: center;
+  margin-bottom: 30px;
+  padding: 30px 20px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: var(--border-radius);
+  backdrop-filter: blur(10px);
+  box-shadow: var(--card-shadow);
+  border: 1px solid var(--border-color);
+}
+
+.app-header h1 {
+  font-size: 2.8rem;
+  margin-bottom: 10px;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: 800;
+}
+
+.app-header p {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: center;
+  transition: all 0.3s ease;
+  margin: 5px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn-primary {
+  background: linear-gradient(90deg, var(--primary-color), var(--primary-light));
+  color: white;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(90deg, #1d4ed8, var(--primary-color));
+  box-shadow: 0 4px 8px rgba(30, 58, 138, 0.3);
+}
+
+.btn-secondary {
+  background: linear-gradient(90deg, var(--secondary-color), #8b5cf6);
+  color: white;
+}
+
+.btn-secondary:hover {
+  background: linear-gradient(90deg, #6d28d9, var(--secondary-color));
+  box-shadow: 0 4px 8px rgba(126, 34, 206, 0.3);
+}
+
+.btn-tertiary {
+  background: rgba(255, 255, 255, 0.8);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+.btn-tertiary:hover {
+  background: white;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .App {
+    padding: 15px;
+  }
+  
+  .app-header h1 {
+    font-size: 2.2rem;
+  }
+  
+  .app-header p {
+    font-size: 1rem;
+  }
+  
+  .controls {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .btn {
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  .day-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  
+  .day-header .stats {
+    width: 100%;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  
+  .match-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  
+  .match-details {
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  .stat-card p {
+    font-size: 1.7rem;
+  }
+}

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dota 2 PTS Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Chart.js for graphs -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Dota 2 PTS Tracker</h1>
+            <p>Отслеживание прогресса по PTS, winrate и аналитика</p>
+        </header>
+
+        <main>
+            <!-- Dashboard section -->
+            <section id="dashboard" class="dashboard">
+                <div class="progress-section">
+                    <h2 class="progress-title">Прогресс до цели</h2>
+                    <div class="progress-container">
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="pts-progress">0%</div>
+                        </div>
+                        <div class="progress-text">
+                            <span id="current-pts">0</span> / <span id="target-pts">0</span> PTS
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h3>Текущий PTS</h3>
+                        <p id="current-pts-value">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Общий Winrate</h3>
+                        <p id="overall-winrate">0%</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Winrate сегодня</h3>
+                        <p id="today-winrate">0%</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Winrate на этой неделе</h3>
+                        <p id="weekly-winrate">0%</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Прогноз достижения цели</h3>
+                        <p id="forecast-days">0 дней</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Game day controls -->
+            <section id="game-day-controls" class="controls-section">
+                <h2 class="controls-title">Игровой день</h2>
+                <div class="controls">
+                    <button id="start-day-btn" class="btn btn-primary">Начать игровой день</button>
+                    <button id="end-day-btn" class="btn btn-secondary" disabled>Закончить игровой день</button>
+                </div>
+            </section>
+
+            <!-- Advanced stats entry -->
+            <section id="advanced-stats" class="advanced-stats-section">
+                <h2 class="advanced-title">Расширенная статистика</h2>
+                <div class="advanced-controls">
+                    <button id="show-advanced-btn" class="btn btn-tertiary">Показать расширенные настройки</button>
+                    <button id="add-match-btn" class="btn btn-tertiary">Добавить матч</button>
+                </div>
+                
+                <div id="advanced-form" class="form-container" style="display: none;">
+                    <h3 class="form-title">Добавить матч</h3>
+                    <form id="match-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="hero">Герой:</label>
+                                <input type="text" id="hero" name="hero" placeholder="Например: Pudge">
+                            </div>
+                            <div class="form-group">
+                                <label for="result">Результат:</label>
+                                <select id="result" name="result">
+                                    <option value="win">Победа</option>
+                                    <option value="loss">Поражение</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="pts-change">Изменение PTS:</label>
+                                <input type="number" id="pts-change" name="pts-change" step="1" placeholder="Например: 20">
+                            </div>
+                            <div class="form-group">
+                                <label for="time-of-day">Время суток:</label>
+                                <select id="time-of-day" name="time-of-day">
+                                    <option value="morning">Утро (6-12)</option>
+                                    <option value="afternoon">День (12-18)</option>
+                                    <option value="evening">Вечер (18-24)</option>
+                                    <option value="night">Ночь (0-6)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="duration">Длительность (мин):</label>
+                                <input type="number" id="duration" name="duration" min="1" placeholder="Например: 45">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary">Сохранить матч</button>
+                                <button type="button" id="cancel-match-btn" class="btn btn-secondary">Отмена</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </section>
+
+            <!-- Charts section -->
+            <section id="charts" class="charts-section">
+                <h2 class="charts-title">Аналитика и графики</h2>
+                <div class="chart-container">
+                    <canvas id="pts-history-chart"></canvas>
+                </div>
+                <div class="chart-container">
+                    <canvas id="winrate-periods-chart"></canvas>
+                </div>
+                <div class="chart-container">
+                    <canvas id="hero-pie-chart"></canvas>
+                </div>
+                <div class="chart-container">
+                    <canvas id="time-of-day-chart"></canvas>
+                </div>
+            </section>
+
+            <!-- History section -->
+            <section id="history" class="history-section">
+                <h2 class="history-title">История игровых дней</h2>
+                <div id="history-list" class="history-list">
+                    <!-- Day entries will be dynamically added here -->
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+/* History section */
+.history-section {
+  background: var(--card-bg);
+  border-radius: var(--border-radius);
+  padding: 30px;
+  box-shadow: var(--card-shadow);
+  border: 1px solid var(--border-color);
+}
+
+.history-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: var(--text-primary);
+}
+
+.history-list {
+  margin-top: 20px;
+}
+
+.day-entry {
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  margin-bottom: 15px;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+}
+
+.day-entry:hover {
+  box-shadow: 0 5px 15px -5px rgba(0,0,0,0.1);
+}
+
+.day-header {
+  padding: 20px;
+  background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.3s;
+}
+
+.day-header:hover {
+  background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 100%);
+}
+
+.day-header h3 {
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.day-header .stats {
+  display: flex;
+  gap: 20px;
+  font-size: 1rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.day-content {
+  padding: 20px;
+  display: none;
+  background: #f8fafc;
+}
+
+.day-content.expanded {
+  display: block;
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    max-height: 0;
+  }
+  to {
+    opacity: 1;
+    max-height: 1000px;
+  }
+}
+
+.matches-list {
+  margin-top: 15px;
+}
+
+.match-item {
+  padding: 15px;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.2s;
+}
+
+.match-item:last-child {
+  border-bottom: none;
+}
+
+.match-item:hover {
+  background-color: #f1f5f9;
+}
+
+.match-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.match-hero {
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 4px;
+}
+
+.match-result.win {
+  color: var(--success-color);
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.match-result.loss {
+  color: var(--danger-color);
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.match-details {
+  display: flex;
+  gap: 15px;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
